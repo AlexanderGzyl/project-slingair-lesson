@@ -36,6 +36,7 @@ export default createGlobalStyle`
       box-sizing: border-box;
       font-size: 100%;
       vertical-align: baseline;
+      /* background:#F79D00; */
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,

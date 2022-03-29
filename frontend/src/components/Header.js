@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-import slingairLogo from "../assets/logo_text.png";
+import slingairLogo from '../assets/logo_text.png';
 
 const Header = () => (
   <Wrapper>
@@ -10,11 +10,12 @@ const Header = () => (
       <h1>Sling Airlines</h1>
     </Logo>
     <Nav>
-      {/* TODO: only show links if the user has a reservation already */}
-      <>
-        <StyledNavLink to="/view-reservation">Reservation</StyledNavLink>
-        <StyledNavLink to="/profile">Profile</StyledNavLink>
-      </>
+      {localStorage.getItem('_id') && (
+        <>
+          <StyledNavLink to="/view-reservation">Reservation</StyledNavLink>
+          <StyledNavLink to="/profile">Profile</StyledNavLink>
+        </>
+      )}
     </Nav>
   </Wrapper>
 );
@@ -35,11 +36,14 @@ const Logo = styled.div`
   text-indent: -1000px;
   height: 60px;
   width: 550px;
+   
+  
 `;
 const Nav = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  background: var(--color-alabama-crimson);
 `;
 const StyledNavLink = styled(NavLink)`
   background: var(--color-selective-yellow);
@@ -57,12 +61,10 @@ const StyledNavLink = styled(NavLink)`
   width: 100%;
   text-decoration: none;
   transition: all ease 400ms;
-
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
   }
-
   &:hover {
     background: var(--color-alabama-crimson);
     color: var(--color-selective-yellow);

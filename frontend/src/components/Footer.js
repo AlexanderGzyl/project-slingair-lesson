@@ -12,18 +12,21 @@ const Footer = () => (
 
 const Wrapper = styled.div`
   display: flex;
-  margin: auto auto 24px;
-  height: 60px;
+  /* margin: auto auto 24px; */
+  /* height: 60px; */
+  background: var(--color-orange);
+  align-items:center;
+  justify-content:center;
+  color: var(--color-orange);
 `;
 const Logo = styled.img`
-  height: 100%;
+  height: 55px;
 `;
 const Text = styled.p`
   color: var(--color-alabama-crimson);
   font-family: var(--font-heading);
   font-size: 36px;
   text-align: center;
-  margin: 12px 0 0 24px;
 `;
 
 export default Footer;

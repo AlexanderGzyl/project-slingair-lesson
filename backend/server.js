@@ -3,7 +3,15 @@
 // import the needed node_modules.
 const express = require("express");
 const morgan = require("morgan");
-
+const {
+  getFlights,
+  getFlight,
+  addReservations,
+  getReservations,
+  getSingleReservation,
+  deleteReservation,
+  updateReservation,
+} = require('./handlers');
 express()
   // Below are methods that are included in express(). We chain them for convenience.
   // --------------------------------------------------------------------------------
@@ -19,7 +27,13 @@ express()
   // ---------------------------------
   // add new endpoints here 👇
   //
-
+  .get("/flights", getFlights)
+  .get("/flight/:_id", getFlight)
+  .post('/add-reservations', addReservations)
+  .get('/get-reservations', getReservations)
+  .get('/get-reservation/:_id', getSingleReservation)
+  .delete('/delete-reservation/:_id', deleteReservation)
+  .put('/update-reservation/:_id', updateReservation)
   //
   // add new endpoints here ☝️
   // ---------------------------------
